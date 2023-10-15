@@ -1,17 +1,12 @@
-// получаем данные из текстового файла
+// получение данных из текстового файла
 
 const fs = require('fs');
 
+const pathToFile = './utils/Move_20200206.txt';
 
-// Move_20200206.txt
-module.exports = fs.readFile('./utils/Move_20200206.txt', { encoding: 'utf8' }, (err, data)  => {
-  if (err) {
-    console.log(err);
-    return;
-  }
+const dataTextLog = fs.readFileSync(pathToFile, { encoding: 'utf8' })
 
-  const logArrai = data
-    .toString('utf8')
+const logData = dataTextLog
     .split(/\r\n/).filter(element => element.length !== 0)
     .map(cell => cell.split(';').filter(element => element !== ''))
     .map((item) => {
@@ -25,7 +20,4 @@ module.exports = fs.readFile('./utils/Move_20200206.txt', { encoding: 'utf8' }, 
       }
     })
 
-  //console.log(/* 'data: ',  */ logData)
-
-  return logArrai;
-});
+module.exports = {logData};

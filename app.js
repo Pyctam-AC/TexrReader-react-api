@@ -3,39 +3,24 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
-//const logData = require('./middlewares/logData.js')
+const {logData} = require('./middlewares/logData.js')
+//const totalTime = require('./middlewares/totalOperatingTime.js')
+const routes = require('./routes/index');
+
+
+//console.log(totalTime(logData))
 
 const port = 3000;
 
 //console.log(logData)
-// получаем данные из текстового файла
 
-const fs = require('fs');
+//console.log(totalTime)
 
-fs.readFile('./utils/Move_20200206.txt', { encoding: 'utf8' }, (err, data)  => {
-  if (err) {
-    console.log(err);
-    return;
-  }
+/* app.get('/', (req, res) => {
+  res.send (totalTime)
+}) */
 
-  const logData = data
-    .toString('utf8')
-    .split(/\r\n/).filter(element => element.length !== 0)
-    .map(cell => cell.split(';').filter(element => element !== ''))
-    .map((item) => {
-      return newItem = {
-        time: item[0],
-        nameEvent: item[1],
-        process_amount: item[2],
-        process_speed: item[3],
-        seconds_amount: item[4],
-        stop_cod: item[5],
-      }
-    })
-
-  console.log(/* 'data: ',*/   logData
-  )
-});
+app.use(routes);
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
