@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 
-const pathToFile = './utils/Move_20200206.txt';
+const pathToFile = './constans/Move_20200206.txt';
 
 const dataTextLog = fs.readFileSync(pathToFile, { encoding: 'utf8' })
 
