@@ -6,7 +6,6 @@ const cors = require('cors');
 const routes = require('./routes/index');
 
 const {logData} = require('./utils/logData.js')
-const totalTime = require('./utils/totalOperatingTime.js')
 const {operTime} = require ('./utils/operatingTime.js');
 const timeWork = require ('./utils/timeWork.js')
 const downTime = require ('./utils/downTime.js')
@@ -28,7 +27,6 @@ app.use(cors({
 //console.log(operTime)
 //console.log(downTime)
 //console.log(timeWork)
-//console.log(totalTime)
 //console.log(totalProcessAmmount)
 //console.log(averageQuantity)
 //console.log(maxOperatingTime)
