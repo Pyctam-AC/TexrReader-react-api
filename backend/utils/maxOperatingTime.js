@@ -1,7 +1,7 @@
 const {operTime, letTime, intervaSumm, timeObjekt} = require('./operatingTime.js');
 
 const maxOperatingTime = (arr) => {
-  const time = arr.map((item) => {return letTime(item)});
+  const time = arr?.map((item) => {return letTime(item)});
 
   const interval = intervaSumm(time)
     .reduce((a, c) => c > a ? c : a, 0);

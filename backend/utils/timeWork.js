@@ -3,11 +3,11 @@ const mashineTime = require('./mashinTime.js')
 
 const timeWork = (arr) => {
 
-  const totalDiffTime = mashineTime(arr)
+  const totalDiffTime = mashineTime(arr);
 
-  const result = `Общее время работы оборудования ${totalDiffTime.hours} часов ${totalDiffTime.minutes} минут ${totalDiffTime.seconds}.${totalDiffTime.milliseconds} секунд`
+  const result = `Общее время работы оборудования ${totalDiffTime.hours} часов ${totalDiffTime.minutes} минут ${totalDiffTime.seconds}.${totalDiffTime.milliseconds} секунд`;
 
-  return result
+  return result;
 }
 
-module.exports = timeWork(operTime)
+module.exports = timeWork(operTime);

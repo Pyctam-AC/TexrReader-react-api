@@ -67,7 +67,7 @@ const intervaSumm = (arr)=> {
     arrInterval.push(diffTime(arr[i], arr[i + 1]));
   }
 
-  return arrInterval
+  return arrInterval;
 }
 
 //module.exports = operatingTime(logData)

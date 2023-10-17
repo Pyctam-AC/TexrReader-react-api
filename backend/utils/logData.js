@@ -6,8 +6,7 @@ const pathToFile = './constans/Move_20200206.txt';
 
 const dataTextLog = fs.readFileSync(pathToFile, { encoding: 'utf8' })
 
-const logData = dataTextLog
-    .split(/\r\n/).filter(element => element.length !== 0)
+const logData = dataTextLog?.split(/\r\n/).filter(element => element.length !== 0)
     .map(cell => cell.split(';').filter(element => element !== ''))
     .map((item) => {
       return newItem = {

@@ -22,7 +22,7 @@ const totalTime = (arrayData) => {
 
   const totalDiffTime = totalTimeWork (tiemOwn);
 
-  return totalDiffTime
+  return totalDiffTime;
 
 };
 

@@ -2,7 +2,7 @@ const {operTime, letTime, intervaSumm, timeObjekt} = require('./operatingTime.js
 
 const maxDownTime = (arr) => {
 
-  const newArr = arr.slice(1, -1)
+  const newArr = arr?.slice(1, -1)
 
   const time = newArr.map((item) => {return letTime(item)});
 
