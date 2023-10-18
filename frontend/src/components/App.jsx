@@ -3,6 +3,8 @@ import { useState } from "react";
 
 import './App.css'
 import * as api from '../utils/api'
+import LineChart from "./LineChart.jsx";
+import LineChartTime from "./LineChartTime.jsx";
 
 function App() {
 
@@ -19,6 +21,10 @@ function App() {
   const [maxOperatingTime, setMaxOperatingTime] = useState(null)
 
   const [maxDownTime, setMaxDownTime] = useState(null)
+
+  const [cumulativeTotal, setCumulativeTotal] = useState(null)
+
+  const [cumulativeTime, setcumulativeTime] = useState(null)
 
   const requestTotalTime = () => {
     api.getTotalTime()
@@ -76,6 +82,24 @@ function App() {
       .catch((err) => console.log(err))
   }
 
+  const requestCumulativeTotal = () => {
+    api.getCumulativeTotal()
+      .then((res) => {
+        console.log(res)
+        setCumulativeTotal(res)
+      })
+      .catch((err) => console.log(err))
+  }
+
+  const requestCumulativeTotalTime = () => {
+    api.getCumulativeTotal()
+      .then((res) => {
+        console.log(res)
+        setcumulativeTime(res)
+      })
+      .catch((err) => console.log(err))
+  }
+
   return (
     <div className='main'>
       <h1 className='title'>Запрос логов</h1>
@@ -123,6 +147,7 @@ function App() {
           >
             максимальное время простоя оборудования
           </button>
+          
         </div>
         <div className='container__box'>
           <p>{totalTime}</p>
@@ -134,6 +159,25 @@ function App() {
           <p>{maxDownTime}</p>
         </div>
       </div>
+      <div className="chart">
+        <button
+            type="button"
+            onClick={requestCumulativeTotal}
+          >
+            график произодительности нарастающим итогом в зависимости от времени
+        </button>
+        <LineChart chart={cumulativeTotal} />
+      </div>
+      <div className="chart">
+        <button
+            type="button"
+            onClick={requestCumulativeTotalTime}
+          >
+            график средней скорости обработки с последнего события START до текущего события в зависимости от времени
+        </button>
+        <LineChartTime chart={cumulativeTime} />
+      </div>
+
     </div>
   )
 }

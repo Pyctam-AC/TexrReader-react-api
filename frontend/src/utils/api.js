@@ -99,3 +99,16 @@ export const getMaxDownTime = () => {
     return res.text();
   })
 }
+
+export const getCumulativeTotal = () => {
+  return fetch(`${url}getcumulativetotal`, {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+  })
+  .then(res => {
+    return res.json();
+  })
+}

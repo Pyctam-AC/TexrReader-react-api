@@ -8,6 +8,12 @@ const operTime = logData.filter((item) => {
       return item}
 }).map((item) => {return item.time})
 
+//формируем данные для построения графика
+const chartData = logData.filter((item) => {
+  if (item.nameEvent !== 'START') {
+      return item}
+})
+
 //формуруем объект времени
 const letTime = (arr) => {
 
@@ -71,4 +77,12 @@ const intervaSumm = (arr)=> {
 }
 
 //module.exports = operatingTime(logData)
-module.exports = {operTime, letTime, diffTime, timeObjekt, totalTimeWork, intervaSumm};
+module.exports = {
+  operTime,
+  chartData,
+  letTime,
+  diffTime,
+  timeObjekt,
+  totalTimeWork,
+  intervaSumm
+};

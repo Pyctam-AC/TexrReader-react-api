@@ -5,6 +5,7 @@ const totalProcessAmount = require ('../utils/totalProcessAmount.js')
 const averageQuantity = require ('../utils/averageQuantity.js')
 const maxOperatingTime = require ('../utils/maxOperatingTime.js')
 const maxDownTime = require ('../utils/maxDownTime.js')
+const cumulativeTotal = require('../utils/cumulativeTotal.js')
 
 // т.к. все функции в одно действие оптимизация и рефкторинг не проводились
 // в рамках тестового задания ошибки не обрабатывались
@@ -44,6 +45,11 @@ const getMaxDownTime = (req, res, next) => {
   next()
 }
 
+const getCumulativeTotal = (req, res, next) => {
+  res.status(200).send(cumulativeTotal);
+  next()
+}
+
 
 module.exports = {
   getTotalTime,
@@ -53,4 +59,5 @@ module.exports = {
   getAverageQuantity,
   getMaxOperatingTime,
   getMaxDownTime,
+  getCumulativeTotal,
 }
